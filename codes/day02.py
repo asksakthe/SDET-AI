@@ -21,4 +21,4 @@ def analyse_text(str_in):
   case_up = make_upper(str_in)
   return f"total word count is {words} and char count is {chars}. so all the things are upper case {case_up}"
 
-print(analyse_text("Hello World"))
+#print(analyse_text("Hello World"))
