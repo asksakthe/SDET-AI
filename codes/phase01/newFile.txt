@@ -1,0 +1,8 @@
+AI is transforming the software industry rapidly.
+LangChain is a framework for building LLM applications.
+RAG stands for Retrieval Augmented Generation.
+Agents can use tools to complete complex tasks.
+Python is the primary language for AI engineering.
+Vector databases store embeddings for semantic search.
+Prompt engineering is the art of crafting effective prompts.
+Fine tuning adapts a model to specific domain knowledge.
