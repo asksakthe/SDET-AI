@@ -1,0 +1,10 @@
+# Ignore environment files containing secrets
+codes/.env
+
+# Python bytecode
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Editor settings
+.vscode/
