@@ -54,7 +54,12 @@ def process_doc(filName):
 
 if "__main__" == __name__:
     fi = process_doc(filName='newFile.txt')
-    
+    print(f"The Total chunks are {len(fi)}")
+    for i in range(len(fi)):
+        print(f"\nChunk {fi[i]['chunk_ID']}")
+        print(f"\ttext : {fi[i]['text']}")
+        print(f"\tCount of words in chunk number {fi[i]['chunk_ID']}: {fi[i]['wordsCount']}\n")
+        print("###################################") 
 
 
 
