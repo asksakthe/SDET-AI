@@ -19,7 +19,7 @@ def split_sent(str_in):
     split_list = [x for x in str_in.split('.') if x]
     return split_list
 #chunk the text wit some overlap
-def chunk_text(list_in, chunk_Siz=30, overlap = 10):
+def chunk_text(list_in, chunk_Siz=10, overlap = 3):
     stri = " ".join(list_in)
     #print(f"DEBUG stri[:50]: {repr(stri[:50])}")
     words = stri.split()
@@ -52,14 +52,14 @@ def process_doc(filName):
         return f"check the file present bcoz getting {e}"
     #return file_dir
 
-if "__main__" == __name__:
-    fi = process_doc(filName='newFile.txt')
-    print(f"The Total chunks are {len(fi)}")
-    for i in range(len(fi)):
-        print(f"\nChunk {fi[i]['chunk_ID']}")
-        print(f"\ttext : {fi[i]['text']}")
-        print(f"\tCount of words in chunk number {fi[i]['chunk_ID']}: {fi[i]['wordsCount']}\n")
-        print("###################################") 
+# if "__main__" == __name__:
+#     fi = process_doc(filName='newFile.txt')
+#     print(f"The Total chunks are {len(fi)}")
+#     for i in range(len(fi)):
+#         print(f"\nChunk {fi[i]['chunk_ID']}")
+#         print(f"\ttext : {fi[i]['text']}")
+#         print(f"\tCount of words in chunk number {fi[i]['chunk_ID']}: {fi[i]['wordsCount']}\n")
+#         print("###################################") 
 
 
 

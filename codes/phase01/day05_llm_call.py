@@ -1,27 +1,58 @@
 import os
+from dotenv import load_dotenv
 import anthropic
-import day03_lists
+#import codes.phase01.day03_lists as day03_lists
+from groq import Groq
 
+load_dotenv()
 
 def call_llm(prompt: str) -> str:
-    """Call Anthropic messages API and return the assistant text."""
-    # Use keyword-only argument for api_key (constructor is keyword-only)
-    client = anthropic.Client(api_key=os.getenv("ANTHROPIC_API_KEY"))
-
-    response = client.messages.create(
-        model="claude-3-5-sonnet-20241022",
-        max_tokens=256,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    # Extract response text (safe fallback if structure differs)
+    """Call Groq API and return the assistant text."""
     try:
-        return response.content[0].text
-    except Exception:
-        return str(response)
+        client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+        chat_completion = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt,
+                }
+            ],
+            model="llama-3.3-70b-versatile",
+        )
+        return chat_completion.choices[0].message.content
+    except Exception as e:
+        return str(e)
+
+# def call_llm(prompt: str) -> str:
+#     """Call Anthropic messages API and return the assistant text."""
+#     # Use keyword-only argument for api_key (constructor is keyword-only)
+#     try:
+#         client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+#     #client = anthropic.Client(api_key=os.getenv("ANTHROPIC_API_KEY"))
+#     chat_completion = client.chat.completions.create(
+#         messages= [
+#             {
+#                 "role": "user",
+#                 "content": prompt,
+#             }
+#         ],
+#         model="llama-3.3-70b-versatile",
+#         )
+#     # #response = client.messages.create(
+#     #     model="claude-3-5-sonnet-20241022",
+#     #     max_tokens=256,
+#     #     messages=[{"role": "user", "content": prompt}],
+#     # )
+
+#     # Extract response text (safe fallback if structure differs)
+    
+#         return chat_completion.choices[0].message.content
+#     except Exception as e:
+#         return str(e)
 
 
 def safe_call_llm(prompt: str) -> str:
+    prompt = prompt + "explain in simple terms not more than 10 words"
     try:
         if not isinstance(prompt, str):
             return "Error: Prompt must be a string."
@@ -43,11 +74,11 @@ def analyse_with_ai(documents):
     return results
 
 
-if __name__ == "__main__":
-    documents = [
-        "cloud computing software industry",
-        "LangChain helps build LLM applications",
-    ]
-    ai_analysis_results = analyse_with_ai(documents)
-    for i, res in enumerate(ai_analysis_results):
-        print(f"Document {i+1}:\n\t Text: {res['text']}\n\t AI Insights: {res['AI_Insights']}\n")
+# if __name__ == "__main__":
+#     documents = [
+#         "cloud computing software industry",
+#         "LangChain helps build LLM applications",
+#     ]
+#     ai_analysis_results = analyse_with_ai(documents)
+#     for i, res in enumerate(ai_analysis_results):
+#         print(f"Document {i+1}:\n\t Text: {res['text']}\n\t AI Insights: {res['AI_Insights']}\n")

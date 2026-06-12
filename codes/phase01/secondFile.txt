@@ -1,0 +1,4 @@
+Python is the primary language for AI engineering.
+Vector \n databases store    embeddings for \n semantic search.
+Prompt engineering \n is the art of crafting effective prompts.
+Fine tuning adapts a model     to specific domain knowledge.
