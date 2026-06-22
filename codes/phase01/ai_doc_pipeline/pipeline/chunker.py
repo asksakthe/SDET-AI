@@ -50,16 +50,3 @@ def process_doc(filName, chunk_Siz=10, overlap = 3):
             return result 
     except FileNotFoundError as e:
         return f"check the file present bcoz getting {e}"
-    #return file_dir
-
-# if "__main__" == __name__:
-#     fi = process_doc(filName='newFile.txt')
-#     print(f"The Total chunks are {len(fi)}")
-#     for i in range(len(fi)):
-#         print(f"\nChunk {fi[i]['chunk_ID']}")
-#         print(f"\ttext : {fi[i]['text']}")
-#         print(f"\tCount of words in chunk number {fi[i]['chunk_ID']}: {fi[i]['wordsCount']}\n")
-#         print("###################################") 
-
-
-

@@ -1,6 +1,6 @@
 import time
-import day07_02chunker as d7
-import day05_llm_call as d5
+import chunker as d7
+import llm_caller as d5
 
 class AIPipeline:
     def __init__(self):
